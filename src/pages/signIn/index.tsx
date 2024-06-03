@@ -1,10 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 import { Input } from '../../components/form/input';
+import { Header } from '../../components/header';
 
 import * as Styles from './styles';
-import { useNavigate } from 'react-router-dom';
-import { Header } from '../../components/header';
 
 export function SignIn() {
     const [inputEmailValue, setInputEmailValue] = React.useState<string>('');
@@ -19,11 +20,13 @@ export function SignIn() {
 
         if (INPUT_EMAIL_VALUE_IS_INVALID || INPUT_PASSWORD_VALUE_IS_INVALID) {
             setFormIsValid(false);
-            window.alert('Credenciais invalidas!');
+            toast.error('Credenciais invalidas!', {
+                position: 'top-center',
+                theme: 'colored'
+            });
             return;
         } else {
             setFormIsValid(true);
-            window.alert('Sucesso!');
             navigate('/home');
         }
 
@@ -31,6 +34,8 @@ export function SignIn() {
 
     return (
         <React.Fragment>
+            <ToastContainer />
+
             <Header isAuthenticated={false} />
 
             <Styles.Form>
