@@ -1,8 +1,9 @@
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './routes';
 
 import { GlobalStyles } from './global/styles';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './routes';
 
 export function App() {
   return (

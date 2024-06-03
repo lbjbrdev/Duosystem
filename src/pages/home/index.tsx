@@ -1,5 +1,15 @@
-export function Home () {
+import React from 'react';
+import * as Styles from './styles';
+import { Header } from '../../components/header';
+
+export function Home() {
     return (
-        <h1>Home</h1>
+        <React.Fragment>
+            <Header isAuthenticated />
+
+            <Styles.Container>
+                <Styles.Title>Seja bem vindo Lucas</Styles.Title>
+            </Styles.Container>
+        </React.Fragment>
     );
 }
