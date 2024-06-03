@@ -13,7 +13,7 @@ export function SignIn() {
 
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
+    const handleSignIn = () => {
         const INPUT_EMAIL_VALUE_IS_INVALID = !inputEmailValue || inputEmailValue === '';
         const INPUT_PASSWORD_VALUE_IS_INVALID = !inputPasswordValue || inputPasswordValue === '';
 
@@ -51,8 +51,8 @@ export function SignIn() {
                     hasError={!formIsValid}
                 />
 
-                <Styles.Button onClick={handleSubmit}>Entrar</Styles.Button>
-                <Styles.Button>Criar conta</Styles.Button>
+                <Styles.Button onClick={handleSignIn}>Entrar</Styles.Button>
+                <Styles.Button onClick={() => navigate('/register')}>Criar conta</Styles.Button>
             </Styles.Form>
         </React.Fragment>
     );
