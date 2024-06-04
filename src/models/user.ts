@@ -1,7 +1,8 @@
 export interface IUser {
-    id: string;
+    id?: string;
     fullName: string;
     email: string;
+    password?: string;
     dateOfBirth: string;
-    deleted: boolean;
+    deleted?: boolean;
 }

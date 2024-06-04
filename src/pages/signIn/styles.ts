@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface IProps {
+    isLoading?: boolean;
+}
+
 export const Title = styled.p`
     font-size: 1.6rem;
 
@@ -16,7 +20,7 @@ export const Form = styled.div`
     margin-top: 15rem;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<IProps>`
     width: 10rem;
     height: 2.5rem;
 
@@ -27,7 +31,7 @@ export const Button = styled.button`
     border: 1px solid #FFF;
     border-radius: 0.3rem;
 
-    cursor: pointer;
+    cursor: ${props => props?.isLoading ? 'not-allowed' : 'pointer'};
 
     transition: all .2s;
 

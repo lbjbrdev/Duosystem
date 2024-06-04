@@ -1,14 +1,18 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { Header } from "../../components/header";
-import { Input } from "../../components/form/input";
+import { Header } from '../../components/header';
+import { Input } from '../../components/form/input';
 
-import { emailIsValidFormat, passwordIsValidFormat } from "../../utils/validations";
+import { UserOrchestrator } from '../../services/user/orchestrator';
 
-import * as Styles from './styles';
+import { IUser } from '../../models/user';
+
+import { emailIsValidFormat, passwordIsValidFormat } from '../../utils/validations';
+
 import 'react-toastify/dist/ReactToastify.css';
+import * as Styles from './styles';
 
 export function Register() {
     const [inputFullNameValue, setInputFullNameValue] = React.useState<string>('');
@@ -20,7 +24,9 @@ export function Register() {
 
     const navigate = useNavigate();
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
+        const userOrchestrator = new UserOrchestrator();
+
         const INPUT_NAME_VALUE_IS_INVALID = !inputFullNameValue || inputFullNameValue === '';
         const INPUT_EMAIL_VALUE_IS_INVALID = !inputEmailValue || inputEmailValue === '' || !emailIsValidFormat(inputEmailValue);
         const INPUT_PASSWORD_VALUE_IS_INVALID = !inputPasswordValue || inputPasswordValue === '';
@@ -60,10 +66,22 @@ export function Register() {
             return;
         }
 
-        setFormIsValid(true);
+        const newUser: IUser = {
+            fullName: inputFullNameValue,
+            email: inputEmailValue,
+            dateOfBirth: inputDateOfBirthValue,
+            password: inputPasswordValue,
+        }
 
-        navigate('/');
+        try {
+            await userOrchestrator.create(newUser);
 
+            setFormIsValid(true);
+
+            navigate('/');
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (

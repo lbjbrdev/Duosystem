@@ -1,5 +1,5 @@
-import { LiaSignOutAltSolid } from 'react-icons/lia';
 import styled from 'styled-components';
+import { LiaSignOutAltSolid } from 'react-icons/lia';
 
 export const Container = styled.header`
     display: flex;
