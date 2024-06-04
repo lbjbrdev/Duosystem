@@ -1,31 +1,40 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Cadastro de usuários (Teste DuoSystem)
 
-Currently, two official plugins are available:
+O projeto consiste em uma aplicação web para cadastrar e autenticar usuários.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+# Tecnologias e ferramentas utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Frontend:** 
+- React JS (versão: ^18.2.0);
+- Typescript (versão: ^5.2.2);
+- Vite (versão: ^5.2.0);
+- Styled-components (versão: ^6.1.11);
+- Axios (versão: ^1.7.2);
+- React-dom (versão: ^18.2.0);
+- React-router-dom (versão: ^6.23.1);
+- React-icons (versão: ^5.2.1);
+- React-toastify (versão: ^10.0.5);
 
-- Configure the top-level `parserOptions` property like this:
+**Backend:** 
+- Servidor totalmente mockado, criado atraves do site [MOCK API](https://mockapi.io)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+# Instalação
+
+Para instalar e executar o projeto na sua maquina de forma local: 
+- Instale o [NODE JS](https://nodejs.org/en);
+- Instale qualquer editor de código, como por exemplo o [VISUAL STUDIO CODE](https://code.visualstudio.com/download)
+
+#### Agora para testar o projeto em ambiente produtivo, acesse esse [LINK](https://duosystem.vercel.app/).
+
+### Depois de ter instalado as ferramentas, siga esses passos para rodar o projeto de forma local:
+
+```bash
+  npm install
+  npm run dev
 ```
+    
+#### Desenvolvido por Lucas Berce de Jesus
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# Duosystem
